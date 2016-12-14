@@ -26,7 +26,6 @@ module.exports = {
     colors: true,
     reasons: true
   },
-
   resolve: {
     extensions: ['', '.js', '.jsx'],
     alias: {
@@ -44,18 +43,18 @@ module.exports = {
     loaders: [{
       test: /\.(js|jsx)$/,
       exclude: /node_modules/,
-      loader: 'react-hot!babel-loader'
+      loader: 'react-hot!babel-loader'// transpiling compiling
     }, {
       test: /\.scss/,
-      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}!sass-loader?outputStyle=expanded'
+      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version", "firefox 15"]}!sass-loader?outputStyle=expanded'
     }, {
-      test:/\.json$/,
-      loader: 'json-loader'
-    },{
       test: /\.css$/,
-      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version"]}'
+      loader: 'style-loader!css-loader!autoprefixer-loader?{browsers:["last 2 version", "firefox 15"]}'
     }, {
-      test: /\.(png|jpg|woff|woff2)$/,
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, {
+      test: /\.(png|jpg|woff|woff2|eot|ttf|svg)$/,
       loader: 'url-loader?limit=8192'
     }]
   },
@@ -65,3 +64,4 @@ module.exports = {
   ]
 
 };
+
